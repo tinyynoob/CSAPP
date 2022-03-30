@@ -17,7 +17,7 @@ typedef long double data_t;
 #ifdef INT
 /* $begin typedefint */
 typedef int data_t;
-/* $end typedefint */ 
+/* $end typedefint */
 #define DATA_NAME "Integer"
 #endif
 
@@ -34,7 +34,7 @@ typedef char data_t;
 #ifdef PROD
 /* $begin operprod */
 #define IDENT 1
-#define OP  *
+#define OP *
 /* $end operprod */
 #define OP_NAME "Product"
 #else
@@ -45,7 +45,7 @@ typedef char data_t;
 #else
 /* $begin operplus */
 #define IDENT 0
-#define OP  +
+#define OP +
 /* $end operplus */
 #define OP_NAME "Sum"
 #endif /* DIV */
@@ -54,7 +54,7 @@ typedef char data_t;
 #include "vec.h"
 
 /* Declaration of a combining routine */
-/* Source vector, destination location */ 
+/* Source vector, destination location */
 typedef void (*combiner)(vec_ptr, data_t *);
 
 /* Add combining routine to list of programs to measure */
@@ -66,5 +66,3 @@ void log_combiner(combiner f, double fast_cpe, double slow_cpe);
 
 /* Called by main to register the set of transposition routines to benchmark */
 void register_combiners(void);
-
-

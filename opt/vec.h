@@ -3,9 +3,9 @@
 typedef struct {
     long int len;
     data_t *data;
-/* $end adt */
+    /* $end adt */
     long int allocated_len; /* NOTE: we don't use this field in the book */
-/* $begin adt */ 
+    /* $begin adt */
 } vec_rec, *vec_ptr;
 /* $end adt */
 
@@ -19,9 +19,8 @@ vec_ptr new_vec(long int len);
 int get_vec_element(vec_ptr v, long int index, data_t *dest);
 
 /* Macro version */
-#define GET_VEC_ELEMENT(v,index,dest) \
-    !((index) < 0 || (index) >= (v)->len) && \
-    *(dest) = (v)->data[(index)], 1;
+#define GET_VEC_ELEMENT(v, index, dest) \
+    !((index) < 0 || (index) >= (v)->len) && *(dest) = (v)->data[(index)], 1;
 
 
 data_t *get_vec_start(vec_ptr v);

@@ -8,23 +8,22 @@ vec_ptr new_vec(long int len)
     /* Allocate header structure */
     vec_ptr result = (vec_ptr) malloc(sizeof(vec_rec));
     if (!result)
-        return NULL;  /* Couldn't allocate storage */
+        return NULL; /* Couldn't allocate storage */
     result->len = len;
-/* $end vec */
+    /* $end vec */
     /* We don't show this in the book */
     result->allocated_len = len;
-/* $begin vec */
+    /* $begin vec */
     /* Allocate array */
     if (len > 0) {
-        data_t *data = (data_t *)calloc(len, sizeof(data_t));
-	if (!data) {
-	    free((void *) result);
- 	    return NULL; /* Couldn't allocate storage */
-	}
-	result->data = data;
-    }
-    else
-	result->data = NULL;
+        data_t *data = (data_t *) calloc(len, sizeof(data_t));
+        if (!data) {
+            free((void *) result);
+            return NULL; /* Couldn't allocate storage */
+        }
+        result->data = data;
+    } else
+        result->data = NULL;
     return result;
 }
 
@@ -35,7 +34,7 @@ vec_ptr new_vec(long int len)
 int get_vec_element(vec_ptr v, long int index, data_t *dest)
 {
     if (index < 0 || index >= v->len)
-	return 0;
+        return 0;
     *dest = v->data[index];
     return 1;
 }
@@ -63,7 +62,7 @@ data_t *get_vec_start(vec_ptr v)
 int set_vec_element(vec_ptr v, long int index, data_t val)
 {
     if (index < 0 || index >= v->len)
-	return 0;
+        return 0;
     v->data[index] = val;
     return 1;
 }
@@ -73,9 +72,9 @@ int set_vec_element(vec_ptr v, long int index, data_t val)
 void set_vec_length(vec_ptr v, long int newlen)
 {
     if (newlen > v->allocated_len) {
-	free(v->data);
-	v->data = calloc(newlen, sizeof(data_t));
-	v->allocated_len = newlen;
+        free(v->data);
+        v->data = calloc(newlen, sizeof(data_t));
+        v->allocated_len = newlen;
     }
     v->len = newlen;
 }

@@ -1,17 +1,17 @@
 /* $begin forkprob6 */
 #include "csapp.h"
 
-void doit() 
+void doit()
 {
     if (Fork() == 0) {
-	Fork();
-	printf("hello\n");
-	return;
+        Fork();
+        printf("hello\n");
+        return;
     }
     return;
 }
 
-int main() 
+int main()
 {
     doit();
     printf("hello\n");
