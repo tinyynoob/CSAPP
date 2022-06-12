@@ -1,6 +1,6 @@
 /* $begin sharing */
 #include "csapp.h"
-#define N 2
+#define N 3
 void *thread(void *vargp);
 
 char **ptr; /* global variable */  // line:conc:sharing:ptrdec
@@ -9,7 +9,7 @@ int main()
 {
     int i;
     pthread_t tid;
-    char *msgs[N] = {"Hello from foo", "Hello from bar"};
+    char *msgs[N] = {"Hello from foo", "Hello from bar", "Kappa"};
 
     ptr = msgs;
     for (i = 0; i < N; i++)
